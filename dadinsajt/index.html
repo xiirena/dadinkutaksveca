@@ -2,7 +2,7 @@
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
 
 <title>Dadin Kutak Sveća</title>
 
@@ -10,131 +10,141 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
 body{
-
+margin:0;
+font-family:Poppins;
 background:
-linear-gradient(
-180deg,
-#130018,
-#2d1038,
-#150018
-);
-
+linear-gradient(180deg,#1a0022,#2d1038,#120018);
 color:white;
 overflow-x:hidden;
-min-height:100vh;
 }
 
 
-/* Glow */
+/* POZADINSKE SVEĆE */
 
-.glow{
+.candle{
 position:fixed;
-width:350px;
-height:350px;
-background:#ffb347;
-filter:blur(120px);
-opacity:.18;
-border-radius:50%;
-animation:move 8s infinite alternate;
-z-index:-1;
+bottom:0;
+width:35px;
+height:120px;
+background:#fff0d5;
+border-radius:10px;
+opacity:.2;
 }
 
-@keyframes move{
+.flame{
+position:absolute;
+top:-20px;
+left:10px;
+
+width:15px;
+height:25px;
+
+background:orange;
+
+border-radius:50% 50% 50% 50%;
+
+filter:blur(1px);
+
+animation:
+burn 1s infinite alternate;
+}
+
+@keyframes burn{
+
+from{
+transform:
+scale(1)
+rotate(-5deg);
+}
+
 to{
 transform:
-translateX(300px)
-translateY(100px);
+scale(1.2)
+rotate(5deg);
 }
+
 }
 
 
-header{
+/* cvece */
 
-padding:40px;
-text-align:center;
+.flower{
+position:fixed;
+font-size:35px;
+opacity:.12;
+animation:
+float 12s infinite linear;
+}
+
+@keyframes float{
+
+from{
+transform:
+translateY(100vh);
+}
+
+to{
+transform:
+translateY(-120vh);
+}
+
 }
 
 
 h1{
 
-font-family:"Marck Script";
-font-size:75px;
+font-family:
+Marck Script;
+
+font-size:80px;
+
+text-align:center;
+
+margin-top:40px;
 
 color:#ffd08a;
 
 text-shadow:
-0 0 20px orange,
-0 0 40px gold;
-
-animation:flicker 2s infinite;
-}
-
-
-@keyframes flicker{
-
-50%{
-opacity:.85;
-}
+0 0 30px orange;
 }
 
 
 .subtitle{
 
-font-size:18px;
+text-align:center;
 opacity:.8;
-margin-top:10px;
+font-size:18px;
 }
 
 
-/* Language buttons */
+.notice{
 
-.languages{
+text-align:center;
 
-position:absolute;
-right:20px;
-top:20px;
-display:flex;
-gap:10px;
-}
+background:#ffffff10;
 
+padding:15px;
 
-.languages button{
+margin:30px auto;
 
-border:none;
-padding:10px 16px;
+width:300px;
+
 border-radius:20px;
 
-background:#ffffff15;
-color:white;
-cursor:pointer;
-
-transition:.3s;
+font-weight:bold;
 }
 
-.languages button:hover{
-
-background:#ffb347;
-transform:scale(1.1);
-}
-
-
-/* Products */
 
 .products{
 
 display:flex;
-justify-content:center;
-gap:35px;
 
 flex-wrap:wrap;
+
+justify-content:center;
+
+gap:30px;
 
 padding:40px;
 }
@@ -142,25 +152,22 @@ padding:40px;
 
 .card{
 
-background:rgba(255,255,255,.06);
-
 width:250px;
 
-padding:18px;
+background:#ffffff10;
 
 border-radius:25px;
 
-backdrop-filter:blur(10px);
+padding:20px;
 
-transition:.4s;
+transition:.3s;
 }
 
 
 .card:hover{
 
 transform:
-translateY(-10px)
-scale(1.03);
+translateY(-8px);
 
 box-shadow:
 0 0 30px orange;
@@ -170,79 +177,104 @@ box-shadow:
 .card img{
 
 width:100%;
-height:220px;
+height:200px;
 
 object-fit:cover;
 
 border-radius:20px;
-
-background:#333;
-}
-
-
-.card h2{
-
-margin-top:15px;
-font-size:26px;
 }
 
 
 .price{
 
-margin-top:8px;
-
-font-size:22px;
-
 color:#ffd08a;
+
+font-size:24px;
+
 font-weight:bold;
+}
+
+
+/* SOCIALS */
+
+.socials{
+
+text-align:center;
+
+padding:40px;
+}
+
+
+.socials a{
+
+display:inline-block;
+
+margin:10px;
+
+padding:14px 22px;
+
+background:#ffffff15;
+
+border-radius:20px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+}
+
+
+.socials a:hover{
+
+background:#ffb347;
+
+transform:scale(1.1);
 }
 
 
 footer{
 
-padding:50px;
+padding:30px;
+
 text-align:center;
+
 opacity:.7;
 }
-
 
 </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
 
-<div class="languages">
+<div class="flower" style="left:5%">🌸</div>
+<div class="flower" style="left:20%">🌺</div>
+<div class="flower" style="left:75%">🌷</div>
+<div class="flower" style="left:90%">🌹</div>
 
-<button onclick="changeLang('sr')">
-RS
-</button>
+<div class="candle" style="left:10%">
+<div class="flame"></div>
+</div>
 
-<button onclick="changeLang('en')">
-EN
-</button>
-
-<button onclick="changeLang('ru')">
-RU
-</button>
-
+<div class="candle" style="left:85%">
+<div class="flame"></div>
 </div>
 
 
-<header>
 
-<h1 id="title">
-Dadin Kutak Sveća
-</h1>
+<h1>Dadin Kutak Sveća</h1>
 
-<p class="subtitle" id="subtitle">
-
+<p class="subtitle">
 Ručno pravljene sveće ✨
-
 </p>
 
-</header>
+
+<div class="notice">
+
+🛵 Samo lično dostavljanje
+
+</div>
 
 
 
@@ -255,7 +287,9 @@ Ručno pravljene sveće ✨
 <h2>Krigla</h2>
 
 <div class="price">
+
 350 din
+
 </div>
 
 </div>
@@ -270,7 +304,7 @@ Ručno pravljene sveće ✨
 
 <div class="price">
 
-200 din
+250 din
 
 </div>
 
@@ -312,47 +346,35 @@ Ručno pravljene sveće ✨
 
 
 
+<div class="socials">
+
+<h2>Poručivanje</h2>
+
+<a href="#">
+📷 Instagram
+</a>
+
+<a href="#">
+📘 Facebook
+</a>
+
+<a href="#">
+🎵 TikTok
+</a>
+
+<a href="#">
+💬 Poruči u inbox
+</a>
+
+</div>
+
+
+
 <footer>
 
 🕯️ Dadin Kutak Sveća
 
 </footer>
-
-
-
-<script>
-
-const text={
-
-sr:[
-"Dadin Kutak Sveća",
-"Ručno pravljene sveće ✨"
-],
-
-en:[
-"Dado's Candle Corner",
-"Handmade candles ✨"
-],
-
-ru:[
-"Уголок свечей Дади",
-"Свечи ручной работы ✨"
-]
-
-};
-
-
-function changeLang(lang){
-
-document.getElementById("title")
-.innerHTML=text[lang][0];
-
-document.getElementById("subtitle")
-.innerHTML=text[lang][1];
-
-}
-
-</script>
 
 </body>
 </html>
