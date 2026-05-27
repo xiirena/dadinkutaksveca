@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,51 +19,66 @@ font-family:Poppins,sans-serif;
 }
 
 body{
-background:linear-gradient(180deg,#160018,#2f0a38,#140015);
-color:white;
+
+background:
+linear-gradient(
+180deg,
+#120014,
+#2f0938,
+#140016
+);
+
 overflow-x:hidden;
+color:white;
 min-height:100vh;
 }
 
-/* Glow */
+
+/* GLOW */
 
 .glow{
 position:fixed;
-width:400px;
-height:400px;
-background:orange;
-filter:blur(150px);
-opacity:.15;
+width:500px;
+height:500px;
+background:#ffb347;
+filter:blur(180px);
+opacity:.18;
 border-radius:50%;
-animation:move 10s infinite alternate;
+animation:move 8s infinite alternate;
 z-index:-2;
 }
 
 @keyframes move{
+
 to{
+
 transform:
-translateX(300px)
-translateY(200px);
-}
+translateX(350px)
+translateY(120px);
+
 }
 
-/* Candle bg */
+}
+
+
+/* POZADINSKE SVECE */
 
 .candle{
 position:fixed;
-font-size:50px;
-opacity:.05;
-animation:rise 15s linear infinite;
+font-size:60px;
+opacity:.06;
+animation:float 15s linear infinite;
 }
 
-.c1{left:10%}
-.c2{left:40%}
-.c3{left:75%}
+.c1{left:5%;}
+.c2{left:25%;}
+.c3{left:50%;}
+.c4{left:80%;}
 
-@keyframes rise{
+@keyframes float{
 
 0%{
-transform:translateY(100vh);
+transform:translateY(120vh);
 }
 
 100%{
@@ -71,84 +87,162 @@ transform:translateY(-150px);
 
 }
 
+
+/* CVECE */
+
+.flower{
+position:fixed;
+font-size:40px;
+opacity:.05;
+animation:spin 20s linear infinite;
+}
+
+.f1{
+left:10%;
+top:20%;
+}
+
+.f2{
+right:5%;
+bottom:15%;
+}
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+
+/* LANGUAGE */
+
 .languages{
+
 position:absolute;
 top:20px;
 right:20px;
+
 display:flex;
 gap:10px;
+
 }
 
 .languages button{
+
 border:none;
-padding:10px 15px;
+padding:10px 18px;
+
 border-radius:20px;
-cursor:pointer;
-background:#ffffff20;
+
+background:#ffffff15;
 color:white;
+
+cursor:pointer;
+
+transition:.3s;
 }
+
+.languages button:hover{
+
+background:#ffb347;
+transform:scale(1.1);
+
+}
+
+
+/* HEADER */
 
 header{
 
 padding:70px 20px;
 text-align:center;
+
 }
 
 h1{
 
 font-family:"Great Vibes";
-font-size:85px;
 
-color:#ffd28a;
+font-size:90px;
+
+color:#ffd08a;
 
 text-shadow:
 0 0 20px orange,
 0 0 40px gold;
+
+animation:flicker 2s infinite;
+}
+
+@keyframes flicker{
+
+50%{
+opacity:.85;
+}
+
 }
 
 .subtitle{
 
 margin-top:10px;
+font-size:20px;
 opacity:.8;
 }
+
+
+/* DELIVERY */
 
 .delivery{
 
 text-align:center;
-margin:20px;
-font-size:20px;
-color:#ffd28a;
+font-size:22px;
+color:#ffd08a;
+margin-bottom:30px;
+
 }
+
+
+/* PRODUCTS */
 
 .products{
 
 display:flex;
 justify-content:center;
-gap:30px;
 flex-wrap:wrap;
 
+gap:35px;
+
 padding:40px;
+
 }
 
 .card{
 
 width:250px;
 
-background:#ffffff10;
+background:rgba(255,255,255,.06);
 
-padding:20px;
+padding:18px;
 
 border-radius:25px;
 
-transition:.3s;
+backdrop-filter:blur(10px);
+
+transition:.4s;
+
 }
 
 .card:hover{
 
-transform:translateY(-10px);
+transform:
+translateY(-10px)
+scale(1.03);
 
 box-shadow:
 0 0 30px orange;
+
 }
 
 .card img{
@@ -156,10 +250,18 @@ box-shadow:
 width:100%;
 height:220px;
 
-background:#333;
+object-fit:cover;
 
 border-radius:20px;
-object-fit:cover;
+
+background:#333;
+}
+
+.card h2{
+
+margin-top:15px;
+font-size:28px;
+
 }
 
 .price{
@@ -167,22 +269,37 @@ object-fit:cover;
 font-size:24px;
 font-weight:bold;
 
-color:#ffd28a;
+margin-top:8px;
 
-margin-top:10px;
+color:#ffd08a;
 }
+
+
+/* SOCIAL */
 
 .socials{
 
 text-align:center;
-padding:50px;
+padding:60px 20px;
+
+}
+
+.socials h2{
+
+font-family:"Great Vibes";
+
+font-size:55px;
+
+margin-bottom:25px;
 }
 
 .links{
 
 display:flex;
 justify-content:center;
+
 gap:20px;
+
 flex-wrap:wrap;
 }
 
@@ -191,30 +308,50 @@ flex-wrap:wrap;
 text-decoration:none;
 color:white;
 
-padding:15px 20px;
+padding:15px 25px;
 
 background:#ffffff10;
 
-border-radius:20px;
+border-radius:30px;
+
+transition:.3s;
 }
+
+.links a:hover{
+
+background:#ffb347;
+transform:scale(1.1);
+}
+
+
+/* FOOTER */
 
 footer{
 
-padding:50px;
 text-align:center;
+padding:50px;
+
 opacity:.7;
+
 }
 
 </style>
+
 </head>
 
 <body>
+
 
 <div class="glow"></div>
 
 <div class="candle c1">🕯️</div>
 <div class="candle c2">🕯️</div>
 <div class="candle c3">🕯️</div>
+<div class="candle c4">🕯️</div>
+
+<div class="flower f1">🌸</div>
+<div class="flower f2">🌷</div>
+
 
 
 <div class="languages">
@@ -226,17 +363,23 @@ opacity:.7;
 </div>
 
 
+
 <header>
 
 <h1 id="title">
+
 Dadin Kutak Sveća
+
 </h1>
 
 <p class="subtitle" id="subtitle">
+
 Ručno pravljene sveće ✨
+
 </p>
 
 </header>
+
 
 
 <div class="delivery" id="delivery">
@@ -249,9 +392,10 @@ Ručno pravljene sveće ✨
 
 <section class="products">
 
+
 <div class="card">
 
-<img src="https://via.placeholder.com/250x220">
+<img src="krigla.jpg">
 
 <h2>Krigla</h2>
 
@@ -264,9 +408,10 @@ Ručno pravljene sveće ✨
 </div>
 
 
+
 <div class="card">
 
-<img src="https://via.placeholder.com/250x220">
+<img src="casice.jpg">
 
 <h2>Čašice</h2>
 
@@ -279,9 +424,10 @@ Ručno pravljene sveće ✨
 </div>
 
 
+
 <div class="card">
 
-<img src="https://via.placeholder.com/250x220">
+<img src="medice.jpg">
 
 <h2>Medice</h2>
 
@@ -294,9 +440,10 @@ Ručno pravljene sveće ✨
 </div>
 
 
+
 <div class="card">
 
-<img src="https://via.placeholder.com/250x220">
+<img src="male.jpg">
 
 <h2>Male</h2>
 
@@ -308,6 +455,7 @@ Ručno pravljene sveće ✨
 
 </div>
 
+
 </section>
 
 
@@ -315,24 +463,26 @@ Ručno pravljene sveće ✨
 <section class="socials">
 
 <h2>
+
 Poručivanje
+
 </h2>
 
-<br>
 
 <div class="links">
 
-<a href="#">Instagram</a>
+<a href="">📷 Instagram</a>
 
-<a href="#">Facebook</a>
+<a href="">📘 Facebook</a>
 
-<a href="#">TikTok</a>
+<a href="">🎵 TikTok</a>
 
-<a href="#">Inbox</a>
+<a href="">💌 Inbox</a>
 
 </div>
 
 </section>
+
 
 
 <footer>
@@ -340,6 +490,7 @@ Poručivanje
 🕯️ Dadin Kutak Sveća
 
 </footer>
+
 
 
 <script>
@@ -364,13 +515,19 @@ ru:[
 "🚚 Только личная доставка"
 ]
 
-};
+}
+
 
 function lang(l){
 
-title.innerHTML=texts[l][0];
-subtitle.innerHTML=texts[l][1];
-delivery.innerHTML=texts[l][2];
+document.getElementById("title").innerHTML=
+texts[l][0]
+
+document.getElementById("subtitle").innerHTML=
+texts[l][1]
+
+document.getElementById("delivery").innerHTML=
+texts[l][2]
 
 }
 
